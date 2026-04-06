@@ -58,7 +58,7 @@ export default function Schedule() {
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
-                          <tr className="border-b border-[#1f2937]">
+                          <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                             <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">
                               Time
                             </th>
@@ -78,7 +78,7 @@ export default function Schedule() {
                         </thead>
                         <tbody>
                           {daySchedule.matches.map((match) => (
-                            <tr key={match.id} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                            <tr key={match.id} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                               <td className="px-4 py-3 text-[#e0e0e0] font-semibold">
                                 {match.time}
                               </td>

@@ -1,0 +1,140 @@
+Format
+
+🔷 Stage 1: Group Stage
+
+12 Teams → 2 Groups of 6
+
+Round Robin (BO3)
+
+Advancement
+
+Rank 1–2 → Semi Finals
+
+Rank 3–4 → Playoffs
+
+Rank 5–8 → Play-Ins
+
+Rank 9–10 → Wildcard
+
+Rank 11–12 → Eliminated
+
+```
+📅 Match Schedule In Week 1 (Stage 1)
+
+Day 1 (Intra-region focus)
+IND1 vs IND2
+IND3 vs BA1
+BAN2 vs BAN
+NEP1 vs NEP2
+NEP3vs PAK1
+PAK2 vs PAK3
+
+Day 2
+IND1 vs BAN1
+IND2 vs NEP1
+IND3 vs PAK1
+BAN2 vs NEP2
+BAN3 vs PAK2
+NEP3 vs PAK3
+
+Day 3
+IND1 vs NEP1
+IND2 vs PAK1
+IND3 vs BAN2
+BAN1 vs NEP2
+BAN3 vs PAK3
+NEP3 vs PAK2
+
+Day 4
+IND1 vs PAK1
+IND2 vs BAN2
+IND3 vs NEP3
+BAN1 vs PAK2
+BAN3 vs NEP1
+NEP2 vs PAK3
+
+Day 5
+IND1 vs BAN3
+IND2 vs NEP2
+IND3 vs PAK3
+BAN1 vs NEP3
+BAN2 vs PAK1
+NEP1 vs PAK2 
+```
+
+
+
+
+
+🔥 Stage 2: Wildcard
+
+Match: R9 vs R10 (BO3)
+
+Winner → Play-Ins (WCE)
+
+Loser → 10th
+
+⚔️ Stage 3: Play-Ins
+
+A. Qualifier (PO_Q1)
+
+R5 vs R6 (BO3)
+
+Winner → Playoffs
+
+Loser → Gauntlet
+
+B. Gauntlet
+
+WCE vs R8 (BO1) → Loser OUT
+
+Winner vs R7 (BO1) → Loser OUT
+
+Winner vs PO_Q1 Loser (BO3) → Winner → Playoffs
+
+👑 Stage 4: Playoffs
+
+R3, R4, PO_Q1 Winner, PO_Q2 Winner
+
+Matches (BO3):
+
+R3 vs Qualifier
+
+R4 vs Qualifier
+
+Winners → Main Battle
+
+🏁 Stage 5: Main Battle
+
+Semi Final 1 (BO5)
+
+R1 vs R2
+
+Winner → Grand Final
+
+Loser → SF2
+
+Playoff Clash (BO5)
+
+Playoff Winners fight
+
+Winner → SF2
+
+Loser → 4th
+
+Semi Final 2 (BO5)
+
+SF1 Loser vs Playoff Winner
+
+Winner → Grand Final
+
+Loser → 3rd
+
+Grand Final (BO7)
+
+Winner crowned Champion  
+
+
+
+
+

@@ -99,14 +99,14 @@ export default function Home() {
               </thead>
               <tbody>
                 {PRIZE_BREAKDOWN.map((prize, idx) => (
-                  <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                  <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                     <td className="px-4 py-3 text-[#e0e0e0]">{prize.place}</td>
                     <td className="px-4 py-3 text-right text-primary-500 font-bold">
                       ${prize.amount.toLocaleString()}
                     </td>
                   </tr>
                 ))}
-                <tr className="bg-[#0f1724] font-bold">
+                <tr className="bg-[#0f1823] font-bold">
                   <td className="px-4 py-3 text-[#f0f0f0]">Total Pool</td>
                   <td className="px-4 py-3 text-right text-primary-500 text-lg">
                     ${TOURNAMENT_INFO.prizePool.toLocaleString()}

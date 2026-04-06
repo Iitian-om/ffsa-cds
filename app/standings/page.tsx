@@ -37,7 +37,7 @@ export default function Standings() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#1f2937]">
+                <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Region</th>
@@ -48,7 +48,7 @@ export default function Standings() {
               </thead>
               <tbody>
                 {STANDINGS.map((standing: Standing) => (
-                  <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                  <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                     <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
                       #{standing.rank}
                     </td>
@@ -85,7 +85,7 @@ export default function Standings() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-[#1f2937]">
+                      <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                         <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
                         <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
                         <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">W-L</th>
@@ -94,7 +94,7 @@ export default function Standings() {
                     </thead>
                     <tbody>
                       {regionTeams.map((standing: Standing) => (
-                        <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                        <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                           <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
                             #{standing.rank}
                           </td>

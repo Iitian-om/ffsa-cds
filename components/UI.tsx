@@ -90,7 +90,7 @@ export function Table({ columns, rows, className = "" }: TableProps) {
             {columns.map((col, i) => (
               <th
                 key={i}
-                className="text-left px-4 py-3 font-bold text-[#f0f0f0] bg-[#0f1724]"
+                className="text-left px-4 py-3 font-bold text-[#f0f0f0] bg-[#0f1823]"
               >
                 {col}
               </th>
@@ -101,7 +101,7 @@ export function Table({ columns, rows, className = "" }: TableProps) {
           {rows.map((row, i) => (
             <tr
               key={i}
-              className="border-b border-[#1f2937] hover:bg-[#1a1f35] transition-colors"
+              className="border-b border-[#1f2937] hover:bg-[#1a2141] transition-colors duration-200"
             >
               {row.map((cell, j) => (
                 <td key={j} className="px-4 py-3 text-[#e0e0e0]">

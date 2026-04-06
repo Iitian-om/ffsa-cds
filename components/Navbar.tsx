@@ -52,12 +52,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden border-t border-[#1f2937] bg-[#0f1724] pb-4 space-y-2">
+          <div className="md:hidden border-t border-[#1f2937] bg-[#121829] pb-4 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2 font-semibold text-[#e0e0e0] hover:text-primary-500 hover:bg-[#1a1f35] transition-colors duration-200 rounded"
+                className="block px-4 py-2 font-semibold text-[#e0e0e0] hover:text-primary-500 hover:bg-[#1a2141] transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

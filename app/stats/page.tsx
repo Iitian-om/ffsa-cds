@@ -21,7 +21,7 @@ export default function Stats() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#1f2937]">
+                <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Player</th>
                   <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
@@ -30,7 +30,7 @@ export default function Stats() {
               </thead>
               <tbody>
                 {STATS.tournamentMVP.map((player: StatsItem, idx: number) => (
-                  <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                  <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                     <td className="px-4 py-3">
                       <span className="font-bold text-primary-500">#{player.rank}</span>
                     </td>
@@ -72,7 +72,7 @@ export default function Stats() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#1f2937]">
+                  <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                     <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
                     <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Player</th>
                     <th className="text-right px-4 py-3 font-bold text-[#f0f0f0]">Accuracy</th>
@@ -80,7 +80,7 @@ export default function Stats() {
                 </thead>
                 <tbody>
                   {STATS.bestIGL.map((player: StatsItem, idx: number) => (
-                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                       <td className="px-4 py-3 font-bold text-primary-500">#{player.rank}</td>
                       <td className="px-4 py-3">
                         <div className="font-semibold text-[#f0f0f0]">{player.playerName}</div>
@@ -103,7 +103,7 @@ export default function Stats() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#1f2937]">
+                  <tr className="border-b border-[#1f2937] bg-[#0f1823]">
                     <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
                     <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
                     <th className="text-right px-4 py-3 font-bold text-[#f0f0f0]">Elims</th>
@@ -111,7 +111,7 @@ export default function Stats() {
                 </thead>
                 <tbody>
                   {STATS.mostEliminations.map((team: StatsItem, idx: number) => (
-                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
                       <td className="px-4 py-3 font-bold text-primary-500">#{team.rank}</td>
                       <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
                         {team.teamName}

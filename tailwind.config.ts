@@ -8,8 +8,8 @@ const config = {
     extend: {
       colors: {
         primary: {
-          500: '#0ea5e9',
-          600: '#0284c7',
+          500: '#06b6d4',
+          600: '#0891b2',
         },
         secondary: {
           50: '#f8fafc',
@@ -25,15 +25,12 @@ const config = {
         },
         bg: {
           dark: '#0a0e27',
-          darker: '#121829',
-          card: '#0f1724',
+          darker: '#0f1823',
+          card: '#121829',
         },
       },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
-      },
-      boxShadow: {
-        subtle: '0 1px 3px rgba(0, 0, 0, 0.1)',
       },
     },
   },
