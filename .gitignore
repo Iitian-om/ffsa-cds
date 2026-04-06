@@ -1,0 +1,17 @@
+.next/
+node_modules/
+.env.local
+.env.production.local
+*.pem
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+dist/
+build/
+coverage/
+.eslintrc.json
+.prettierignore
+.env.example
+*.log

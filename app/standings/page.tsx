@@ -1,0 +1,150 @@
+"use client";
+
+import { SectionTitle, Badge } from "@/components/UI";
+import { STANDINGS } from "@/lib/data";
+
+interface Standing {
+  rank: number;
+  teamId: number;
+  teamName: string;
+  region: string;
+  wins: number;
+  losses: number;
+  roundDiff: string;
+  points: number;
+}
+
+function getRankColor(rank: number): string {
+  if (rank <= 2) return "text-green-400";
+  if (rank <= 4) return "text-blue-400";
+  if (rank <= 8) return "text-yellow-400";
+  if (rank <= 10) return "text-orange-400";
+  return "text-red-400";
+}
+
+export default function Standings() {
+  const regions = ["India", "Bangladesh", "Nepal", "Pakistan"];
+
+  return (
+    <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle>Tournament Standings</SectionTitle>
+
+        {/* Overall Standings Table */}
+        <div className="mb-16">
+          <h3 className="text-xl font-bold text-[#f0f0f0] mb-6">Overall Rankings</h3>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-[#1f2937]">
+                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Region</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">W-L</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">Pts</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">RD</th>
+                </tr>
+              </thead>
+              <tbody>
+                {STANDINGS.map((standing: Standing) => (
+                  <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                    <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
+                      #{standing.rank}
+                    </td>
+                    <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                      {standing.teamName}
+                    </td>
+                    <td className="px-4 py-3 text-[#9ca3af]">{standing.region}</td>
+                    <td className="px-4 py-3 text-center text-[#f0f0f0]">
+                      {standing.wins}—{standing.losses}
+                    </td>
+                    <td className="px-4 py-3 text-center font-semibold text-primary-500">
+                      {standing.points}
+                    </td>
+                    <td className="px-4 py-3 text-center text-[#e0e0e0]">
+                      {standing.roundDiff}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Regional Breakdown */}
+        <div className="space-y-12">
+          {regions.map((region) => {
+            const regionTeams = STANDINGS.filter((s) => s.region === region);
+            return (
+              <div key={region}>
+                <h3 className="text-xl font-bold text-primary-500 mb-4 pb-3 border-b border-[#1f2937]">
+                  {region}
+                </h3>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-[#1f2937]">
+                        <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
+                        <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
+                        <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">W-L</th>
+                        <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">Pts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {regionTeams.map((standing: Standing) => (
+                        <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a1f35]">
+                          <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
+                            #{standing.rank}
+                          </td>
+                          <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                            {standing.teamName}
+                          </td>
+                          <td className="px-4 py-3 text-center text-[#f0f0f0]">
+                            {standing.wins}—{standing.losses}
+                          </td>
+                          <td className="px-4 py-3 text-center font-semibold text-primary-500">
+                            {standing.points}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Legend */}
+        <div className="mt-16 pt-12 border-t border-[#1f2937]">
+          <h3 className="text-xl font-bold text-[#f0f0f0] mb-6">Ranking Legend</h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div className="card">
+              <div className="text-green-400 font-bold text-sm mb-1">#1-2</div>
+              <div className="text-[#6b7280] text-xs">Auto Qualify to Playoffs</div>
+            </div>
+            <div className="card">
+              <div className="text-blue-400 font-bold text-sm mb-1">#3-4</div>
+              <div className="text-[#6b7280] text-xs">Playoffs Bracket</div>
+            </div>
+            <div className="card">
+              <div className="text-yellow-400 font-bold text-sm mb-1">#5-8</div>
+              <div className="text-[#6b7280] text-xs">Play-Ins Bracket</div>
+            </div>
+            <div className="card">
+              <div className="text-orange-400 font-bold text-sm mb-1">#9-10</div>
+              <div className="text-[#6b7280] text-xs">Gauntlet Entry</div>
+            </div>
+            <div className="card">
+              <div className="text-red-400 font-bold text-sm mb-1">#11-12</div>
+              <div className="text-[#6b7280] text-xs">Eliminated</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
