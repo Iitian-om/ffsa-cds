@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionTitle, Badge } from "@/components/UI";
-import { STATS } from "@/lib/data";
+import { STATS } from "@/lib/Mock_data";
 
 interface StatsItem {
   rank: number;

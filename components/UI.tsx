@@ -115,4 +115,3 @@ export function Table({ columns, rows, className = "" }: TableProps) {
     </div>
   );
 }
-

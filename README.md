@@ -65,168 +65,11 @@ ffsa-cds/
 - **Package Manager**: pnpm
 - **Fonts**: Orbitron (esports), Inter (body)
 
-## 📦 Installation & Setup
-
-### Prerequisites
-
-- Node.js 18+ or higher
-- pnpm (or npm/yarn as alternative)
-
-### Install pnpm (if not already installed)
-
-```bash
-npm install -g pnpm
-```
-
-### Setup Steps
-
-1. **Navigate to the project directory**:
-   ```bash
-   cd "HTML, CSS/ffsa cds"
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   pnpm install
-   ```
-
-3. **Run the development server**:
-   ```bash
-   pnpm dev
-   ```
-
-4. **Open in browser**:
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 🚀 Production Build
-
-Build the application for production:
-
-```bash
-pnpm build
-```
-
-Start the production server:
-
-```bash
-pnpm start
-```
-
-## 📄 Pages Overview
-
-### Home (/)
-- Hero section with tournament info
-- Live match banner
-- Tournament format breakdown
-- Prize pool distribution
-- Upcoming matches
-- Top teams leaderboard
-
-### Schedule (/schedule)
-- Week-wise tournament schedule
-- Match details (team vs team, format, time)
-- Match status indicators (completed, live, upcoming)
-- Results display
-
-### Standings (/standings)
-- Overall rankings table
-- Regional breakdown
-- Win-loss records
-- Round differentials
-- Point system
-- Ranking highlights (Top 2, Top 4, etc.)
-
-### Teams (/teams)
-- 12 teams organized by region
-- India (3 teams)
-- Bangladesh (3 teams)
-- Nepal (3 teams)
-- Pakistan (3 teams)
-- Team profiles with emojis and descriptions
-- Regional statistics
-
-### Bracket (/bracket)
-- Visual tournament flow
-- Play-Ins stage (5th vs 6th)
-- Semi-Finals (1st vs Play-In Winner, 2nd vs 3rd)
-- Grand Final (BO11)
-- Match format details
-- Prize distribution
-
-### Stats (/stats)
-- Tournament MVP leaderboard
-- Finals MVP showcase
-- Best In-Game Leader rankings
-- Most Eliminations (by team)
-- Key statistics dashboard
-- Performance metrics with progress bars
-
-## 🎨 Design System
-
-### Colors
-
-- **Primary**: Neon Orange (`#f97316`) - Main highlight
-- **Secondary**: Dark Grey range - Background and text
-- **Accent**: Cyan (`#06b6d4`) - Secondary highlight
-- **Success**: Green - Positive states
-- **Warning**: Yellow/Orange - Caution states
-- **Danger**: Red - Alert states
-
-### Typography
-
-- **Heading Font**: Orbitron (Bold, esports style)
-- **Body Font**: Inter (Clean, readable)
-- **Font Sizes**: Responsive scaling for mobile/desktop
-
-### Components
-
-- **Cards**: Glassmorphism with soft glows
-- **Buttons**: Primary (gradient), Secondary (glass)
-- **Badges**: Small status indicators
-- **Tables**: Highlight-based rankings
-
-## 📊 Mock Data
-
-All tournament data is centralized in `lib/data.ts`:
-- Tournament information
-- Prize breakdown
-- 12 Teams with regions
-- Standings and rankings
-- Schedule with matches
-- Statistics and leaderboards
-- Bracket structure
-
-## 🔗 Navigation
-
-All pages are interconnected via the navbar:
-- Logo links to home
-- Quick links to all tournament pages
-- Mobile-responsive hamburger menu
-
-## ✅ Features Checklist
-
-- [x] Responsive design (mobile, tablet, desktop)
-- [x] Dark esports theme with neon colors
-- [x] Hero section with call-to-actions
-- [x] Live match banner
-- [x] Schedule with status indicators
-- [x] Detailed standings table
-- [x] Teams organized by region
-- [x] Tournament bracket visualization
-- [x] Multi-section statistics page
-- [x] Consistent navigation
-- [x] Footer with quick links
-- [x] Smooth animations and transitions
-- [x] Hover effects on interactive elements
-- [x] TypeScript for type safety
-- [x] Production-ready code
-
-## 🎨 Customization
-
-### Update Tournament Info
+## Update Tournament Info
 
 Edit `lib/data.ts`:
 ```typescript
+// example 
 export const TOURNAMENT_INFO = {
   name: "Your Tournament",
   fullName: "Your Full Tournament Name",
@@ -239,23 +82,11 @@ export const TOURNAMENT_INFO = {
 
 Edit `tailwind.config.ts` to adjust the color scheme:
 ```typescript
+// example 
 colors: {
   primary: { /* adjust orange */ },
   accent: { /* adjust cyan */ },
   secondary: { /* adjust grey */ },
-}
-```
-
-### Add More Teams
-
-Edit `lib/data.ts` TEAMS array:
-```typescript
-{
-  id: 13,
-  name: "New Team",
-  region: "India",
-  logo: "🎮",
-  description: "Team description",
 }
 ```
 
@@ -277,73 +108,11 @@ async function getStandings() {
 }
 ```
 
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push to GitHub/GitLab
-2. Connect repo to Vercel
-3. Deploy with one click
-
-### Deploy to Netlify
-
-```bash
-pnpm build
-# Upload the .next folder contents
-```
-
-### Deploy to Custom Server
-
-```bash
-pnpm build
-pnpm start
-```
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🐛 Troubleshooting
-
-### Port 3000 already in use
-
-```bash
-pnpm dev -- -p 3001
-```
-
-### Clear cache and reinstall
-
-```bash
-rm -rf node_modules .next
-pnpm install
-pnpm dev
-```
-
-### TypeScript errors
-
-Ensure TypeScript is properly installed:
-```bash
-pnpm install typescript --save-dev
-```
-
 ## 📝 License
-
 This project is created for FFSA CDS tournament. All rights reserved.
 
-## 🤝 Contributing
-
-Improvements and suggestions are welcome. Feel free to:
-1. Create feature branches
-2. Submit pull requests
-3. Report issues
-
 ## 📧 Support
-
-For issues or questions about the website, please raise an issue in the repository.
+For questions about the website, please raise an issue in the repository.
 
 ---
 
