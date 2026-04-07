@@ -10,7 +10,7 @@ interface Standing {
   region: string;
   wins: number;
   losses: number;
-  roundDiff: string;
+  code: string;
   points: number;
 }
 
@@ -43,7 +43,7 @@ export default function Standings() {
                   <th className="text-left px-4 py-3 font-bold text-[#202122]">Region</th>
                   <th className="text-center px-4 py-3 font-bold text-[#202122]">W-L</th>
                   <th className="text-center px-4 py-3 font-bold text-[#202122]">Pts</th>
-                  <th className="text-center px-4 py-3 font-bold text-[#202122]">RD</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#202122]">Code</th>
                 </tr>
               </thead>
               <tbody>
@@ -63,7 +63,7 @@ export default function Standings() {
                       {standing.points}
                     </td>
                     <td className="px-4 py-3 text-center text-[#202122]">
-                      {standing.roundDiff}
+                      {standing.code}
                     </td>
                   </tr>
                 ))}

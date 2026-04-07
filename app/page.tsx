@@ -176,7 +176,7 @@ export default function Home() {
                     <div className="font-semibold text-[#202122]">
                       {team.wins}W—{team.losses}L
                     </div>
-                    <div className="text-sm text-[#54595d]">{team.roundDiff}</div>
+                    <div className="text-sm text-[#54595d]">{team.points} pts</div>
                   </div>
                 </div>
               </div>
