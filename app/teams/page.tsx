@@ -33,10 +33,10 @@ export default function Teams() {
             <div key={region} className="mb-16">
               <div className="flex items-center space-x-3 mb-8 pb-4 border-b border-primary-500/30">
                 <MapPin size={24} className="text-primary-400" />
-                <h3 className="text-3xl font-orbitron font-bold text-primary-400">
+                <h3 className="text-3xl font-semibold font-bold text-primary-400">
                   {region}
                 </h3>
-                <span className="text-secondary-400 text-lg font-orbitron">
+                <span className="text-secondary-400 text-lg font-semibold">
                   ({regionTeams.length} Teams)
                 </span>
               </div>
@@ -55,12 +55,12 @@ export default function Teams() {
 
                     {/* Team Name */}
                     <div className="space-y-2">
-                      <h4 className="text-2xl font-orbitron font-bold text-white">
+                      <h4 className="text-2xl font-semibold font-bold text-[#202122]">
                         {team.name}
                       </h4>
                       <div className="flex items-center justify-center space-x-2 text-secondary-400">
                         <MapPin size={16} />
-                        <span className="font-orbitron">{team.region}</span>
+                        <span className="font-semibold">{team.region}</span>
                       </div>
                     </div>
 
@@ -70,21 +70,21 @@ export default function Teams() {
                     </p>
 
                     {/* Team Stats Placeholder */}
-                    <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-2">
+                    <div className="pt-4 border-t border-[#c8ccd1] grid grid-cols-3 gap-2">
                       <div className="text-center">
                         <div className="text-xs text-secondary-400">Members</div>
-                        <div className="font-orbitron font-bold text-accent-400">4</div>
+                        <div className="font-semibold font-bold text-accent-400">4</div>
                       </div>
                       <div className="text-center">
                         <div className="text-xs text-secondary-400">Wins</div>
-                        <div className="font-orbitron font-bold text-primary-400">
-                          {Math.floor(Math.random() * 15)}
+                        <div className="font-semibold font-bold text-primary-400">
+                          {8 + (team.id % 7)}
                         </div>
                       </div>
                       <div className="text-center">
                         <div className="text-xs text-secondary-400">Avg Rating</div>
-                        <div className="font-orbitron font-bold text-orange-400">
-                          {(7 + Math.random() * 2).toFixed(1)}
+                        <div className="font-semibold font-bold text-orange-400">
+                          {(7.2 + (team.id % 5) * 0.3).toFixed(1)}
                         </div>
                       </div>
                     </div>
@@ -96,14 +96,14 @@ export default function Teams() {
         })}
 
         {/* Team Structure Info */}
-        <div className="mt-20 p-8 glassmorphism">
+        <div className="mt-20 p-8 card">
           <div className="flex items-start space-x-4 mb-6">
             <Users className="text-primary-400 flex-shrink-0" size={28} />
             <div>
-              <h3 className="text-2xl font-orbitron font-bold mb-4">Team Composition</h3>
+              <h3 className="text-2xl font-semibold font-bold mb-4">Team Composition</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-secondary-300">
                 <div>
-                  <p className="font-orbitron font-bold text-white mb-2">
+                  <p className="font-semibold font-bold text-[#202122] mb-2">
                     Standard Team (4 Players)
                   </p>
                   <ul className="text-sm space-y-1">
@@ -114,7 +114,7 @@ export default function Teams() {
                   </ul>
                 </div>
                 <div>
-                  <p className="font-orbitron font-bold text-white mb-2">
+                  <p className="font-semibold font-bold text-[#202122] mb-2">
                     Squad Roster
                   </p>
                   <ul className="text-sm space-y-1">
@@ -131,22 +131,22 @@ export default function Teams() {
 
         {/* Regional Profile Cards */}
         <div className="mt-16 space-y-8">
-          <h3 className="text-3xl font-orbitron font-bold text-primary-400 mb-8">
+          <h3 className="text-3xl font-semibold font-bold text-primary-400 mb-8">
             Regional Overview
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="space-y-4">
-              <h4 className="text-xl font-orbitron font-bold text-accent-400">
+              <h4 className="text-xl font-semibold font-bold text-accent-400">
                 🇮🇳 India
               </h4>
               <p className="text-secondary-300">
                 Home to the top-seeded teams with a combined 37 victories. Indian squads
                 dominate with aggressive rotations and superior mid-game control.
               </p>
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2 border-t border-[#c8ccd1]">
                 <div className="text-sm">
                   <span className="text-secondary-400">Total Wins:</span>
-                  <span className="text-primary-400 font-orbitron font-bold ml-2">
+                  <span className="text-primary-400 font-semibold font-bold ml-2">
                     37
                   </span>
                 </div>
@@ -154,17 +154,17 @@ export default function Teams() {
             </Card>
 
             <Card className="space-y-4">
-              <h4 className="text-xl font-orbitron font-bold text-accent-400">
+              <h4 className="text-xl font-semibold font-bold text-accent-400">
                 🇧🇩 Bangladesh
               </h4>
               <p className="text-secondary-300">
                 Emerging powerhouse with versatile teams excelling in fast-paced gameplay
                 and unpredictable strategies that keep opponents guessing.
               </p>
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2 border-t border-[#c8ccd1]">
                 <div className="text-sm">
                   <span className="text-secondary-400">Total Wins:</span>
-                  <span className="text-primary-400 font-orbitron font-bold ml-2">
+                  <span className="text-primary-400 font-semibold font-bold ml-2">
                     18
                   </span>
                 </div>
@@ -172,17 +172,17 @@ export default function Teams() {
             </Card>
 
             <Card className="space-y-4">
-              <h4 className="text-xl font-orbitron font-bold text-accent-400">
+              <h4 className="text-xl font-semibold font-bold text-accent-400">
                 🇳🇵 Nepal
               </h4>
               <p className="text-secondary-300">
                 Competitive region bringing solid defensive gameplay and tactical
                 excellence to the tournament stage.
               </p>
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2 border-t border-[#c8ccd1]">
                 <div className="text-sm">
                   <span className="text-secondary-400">Total Wins:</span>
-                  <span className="text-primary-400 font-orbitron font-bold ml-2">
+                  <span className="text-primary-400 font-semibold font-bold ml-2">
                     11
                   </span>
                 </div>
@@ -190,17 +190,17 @@ export default function Teams() {
             </Card>
 
             <Card className="space-y-4">
-              <h4 className="text-xl font-orbitron font-bold text-accent-400">
+              <h4 className="text-xl font-semibold font-bold text-accent-400">
                 🇵🇰 Pakistan
               </h4>
               <p className="text-secondary-300">
                 Determined qualifiers bringing fierce competition and determined gameplay.
                 Known for tactical discipline and adaptation.
               </p>
-              <div className="pt-2 border-t border-white/10">
+              <div className="pt-2 border-t border-[#c8ccd1]">
                 <div className="text-sm">
                   <span className="text-secondary-400">Total Wins:</span>
-                  <span className="text-primary-400 font-orbitron font-bold ml-2">
+                  <span className="text-primary-400 font-semibold font-bold ml-2">
                     9
                   </span>
                 </div>

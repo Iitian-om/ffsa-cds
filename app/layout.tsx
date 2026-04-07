@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: "FFSA CDS - Free Fire South Asia Clash Domination Series",
@@ -22,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} bg-[#0a0e27] text-[#e0e0e0] antialiased`}>
+      <body className="bg-[#eaecf0] text-[#202122] antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
@@ -30,4 +24,3 @@ export default function RootLayout({
     </html>
   );
 }
-
