@@ -94,7 +94,7 @@ colors: {
 
 The website is ready for API integration:
 
-1. Replace mock data in `lib/data.ts` with API calls
+1. Replace mock data in `lib/Mock_data.ts` with API calls
 2. Use Next.js API routes or external APIs
 3. Implement real-time updates for live matches
 4. Connect to tournament backend system
