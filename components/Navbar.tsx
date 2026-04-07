@@ -10,6 +10,7 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Schedule", href: "/schedule" },
+    { label: "Roadmap", href: "/roadmap" },
     { label: "Standings", href: "/standings" },
     { label: "Teams", href: "/teams" },
     { label: "Bracket", href: "/bracket" },
@@ -28,7 +29,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}

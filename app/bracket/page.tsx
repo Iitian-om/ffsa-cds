@@ -1,337 +1,131 @@
 "use client";
 
 import { Card, SectionTitle, Badge } from "@/components/UI";
-import { Trophy, ChevronRight } from "lucide-react";
+import { Trophy } from "lucide-react";
+import { BRACKET_STRUCTURE, PRIZE_BREAKDOWN, SCHEDULE } from "@/lib/data";
+
+function formatPrize(amount: number) {
+  return `$${amount.toLocaleString("en-US")}`;
+}
 
 export default function Bracket() {
+  const championPrize = PRIZE_BREAKDOWN.find((item) => item.place === "1st")?.amount ?? 0;
+  const week3Schedule = SCHEDULE["Week 3: Playoffs & Finals"] as {
+    day: string;
+    date: string;
+    matches: { Match_Title?: string; team1: string; team2: string; format: string }[];
+  }[];
+  const grandFinalDay = week3Schedule.find((day) => day.day.toLowerCase().includes("grand finals"));
+  const grandFinalMatch = grandFinalDay?.matches.find((match) => (match.Match_Title || "").includes("GRAND FINAL"));
+
   return (
     <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionTitle>Tournament Bracket</SectionTitle>
 
-        <p className="text-lg text-secondary-300 mb-12 max-w-2xl">
-          Follow the journey from Play-Ins through the Grand Finals. The path to
-          championship glory starts here.
+        <p className="text-lg text-[#54595d] mb-10 max-w-2xl">
+          Bracket flow based on official FFSA CDS schedule and bracket data.
         </p>
 
-        {/* Desktop Bracket View */}
-        <div className="hidden lg:block overflow-x-auto pb-6">
-          <div className="min-w-max space-y-8 p-4">
-            {/* Play-Ins Stage */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold font-bold text-accent-400 mb-6">
-                Play-Ins
-              </h3>
-              <div className="flex items-center justify-center">
-                <Card className="w-56 space-y-3 text-center">
-                  <Badge variant="primary">5th vs 6th</Badge>
-                  <div className="space-y-2">
-                    <div className="font-semibold font-bold text-[#202122]">
-                      5th Place Qualifier
-                    </div>
-                    <div className="text-secondary-400 font-semibold text-sm">vs</div>
-                    <div className="font-semibold font-bold text-[#202122]">
-                      6th Place Qualifier
-                    </div>
-                  </div>
-                  <div className="text-accent-400 font-semibold font-bold text-sm">
-                    BO3
-                  </div>
-                </Card>
-
-                <div className="px-8">
-                  <ChevronRight size={32} className="text-primary-500" />
+        <div className="space-y-8">
+          <Card>
+            <h3 className="text-xl font-bold text-primary-500 mb-4">Advancement Map</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {Object.entries(BRACKET_STRUCTURE.advancement).map(([rank, destination]) => (
+                <div key={rank} className="rounded-lg border border-[#c8ccd1] p-3 bg-[#f8f9fa]">
+                  <div className="text-xs uppercase tracking-wide text-[#54595d]">{rank}</div>
+                  <div className="font-semibold text-[#202122]">{destination}</div>
                 </div>
-
-                <Card className="w-56 space-y-3 text-center bg-primary-500/10 border-primary-500">
-                  <Badge variant="success">Winner</Badge>
-                  <div className="font-semibold font-bold text-lg text-primary-400">
-                    Play-In Winner
-                  </div>
-                  <div className="text-sm text-secondary-400">
-                    Advances to Playoffs
-                  </div>
-                </Card>
-              </div>
+              ))}
             </div>
+          </Card>
 
-            {/* Semi-Finals Stage */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold font-bold text-accent-400 mb-6">
-                Playoffs
-              </h3>
-              <div className="flex gap-8 justify-center">
-                {/* Semi 1 */}
-                <div className="space-y-2">
-                  <Card className="w-56 space-y-3 text-center">
-                    <Badge variant="primary">Semi Final 1</Badge>
-                    <div className="space-y-2">
-                      <div className="font-semibold font-bold text-[#202122]">
-                        1st Seed
-                      </div>
-                      <div className="text-secondary-400 font-semibold text-sm">vs</div>
-                      <div className="font-semibold font-bold text-[#202122]">
-                        Play-In Winner
-                      </div>
-                    </div>
-                    <div className="text-accent-400 font-semibold font-bold text-sm">
-                      BO3
-                    </div>
-                  </Card>
-                  <div className="text-center">
-                    <ChevronRight size={24} className="text-primary-500 mx-auto" />
-                  </div>
-                </div>
-
-                {/* Semi 2 */}
-                <div className="space-y-2">
-                  <Card className="w-56 space-y-3 text-center">
-                    <Badge variant="primary">Semi Final 2</Badge>
-                    <div className="space-y-2">
-                      <div className="font-semibold font-bold text-[#202122]">
-                        2nd Seed
-                      </div>
-                      <div className="text-secondary-400 font-semibold text-sm">vs</div>
-                      <div className="font-semibold font-bold text-[#202122]">
-                        3rd Seed
-                      </div>
-                    </div>
-                    <div className="text-accent-400 font-semibold font-bold text-sm">
-                      BO3
-                    </div>
-                  </Card>
-                  <div className="text-center">
-                    <ChevronRight size={24} className="text-primary-500 mx-auto" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center gap-4 mt-6">
-                <Card className="w-56 space-y-3 text-center bg-primary-500/10 border-primary-500">
-                  <Badge variant="success">Winner 1</Badge>
-                  <div className="font-semibold font-bold text-primary-400">
-                    To Grand Final
-                  </div>
-                </Card>
-
-                <Card className="w-56 space-y-3 text-center bg-primary-500/10 border-primary-500">
-                  <Badge variant="success">Winner 2</Badge>
-                  <div className="font-semibold font-bold text-primary-400">
-                    To Grand Final
-                  </div>
-                </Card>
-              </div>
-            </div>
-
-            {/* Grand Final */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold font-bold text-orange-400 mb-6 flex items-center space-x-2">
-                <Trophy size={28} />
-                <span>Grand Final</span>
-              </h3>
-
-              <div className="flex justify-center">
-                <Card className="w-64 space-y-4 text-center border-2 border-orange-500 bg-gradient-to-br from-orange-500/20 to-primary-500/20">
-                  <div>
-                    <Badge variant="danger">Championship Match</Badge>
-                  </div>
-
-                  <div className="space-y-3 py-4">
-                    <div>
-                      <div className="text-sm text-secondary-400 mb-1">
-                        Finals Date
-                      </div>
-                      <div className="font-semibold font-bold text-lg">
-                        2024-04-20
-                      </div>
-                    </div>
-
-                    <div className="border-t border-[#c8ccd1] pt-3">
-                      <div className="text-sm text-secondary-400 mb-1">
-                        Semi 1 Winner
-                      </div>
-                      <div className="font-semibold font-bold text-[#202122] mb-2">
-                        vs
-                      </div>
-                      <div className="text-sm text-secondary-400">Semi 2 Winner</div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 pt-2 border-t border-[#c8ccd1]">
-                    <div className="text-2xl font-semibold font-bold text-orange-400">
-                      BO11
-                    </div>
-                    <div className="text-sm text-secondary-400">
-                      First to 6 Rounds
-                    </div>
-                  </div>
-
-                  <div className="pt-4 space-y-1">
-                    <Trophy className="mx-auto text-yellow-400" size={32} />
-                    <div className="font-semibold font-bold text-accent-400">
-                      $100,000
-                    </div>
-                    <div className="text-xs text-secondary-400">1st Place Prize</div>
-                  </div>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Bracket View */}
-        <div className="lg:hidden space-y-6">
-          {/* Play-Ins */}
-          <div>
-            <h3 className="text-xl font-semibold font-bold text-accent-400 mb-3">
-              Play-Ins Stage
-            </h3>
-            <Card className="space-y-3">
-              <Badge variant="primary">5th Place vs 6th Place</Badge>
-              <div className="text-center space-y-2">
-                <div className="font-semibold font-bold">5th Qualifier</div>
-                <div className="text-secondary-400">vs</div>
-                <div className="font-semibold font-bold">6th Qualifier</div>
-              </div>
-              <div className="flex justify-between items-center pt-3 border-t border-[#c8ccd1]">
-                <span className="text-accent-400 font-semibold font-bold">BO3</span>
-                <span className="text-primary-400 text-sm">→ Playoffs</span>
-              </div>
-            </Card>
-          </div>
-
-          {/* Semi-Finals */}
-          <div>
-            <h3 className="text-xl font-semibold font-bold text-accent-400 mb-3">
-              Playoffs (Semi-Finals)
-            </h3>
+          <Card>
+            <h3 className="text-xl font-bold text-primary-500 mb-4">Wildcard</h3>
             <div className="space-y-3">
-              <Card className="space-y-3">
-                <Badge variant="primary">Semi Final 1</Badge>
-                <div className="text-center space-y-2 text-sm">
-                  <div className="font-semibold font-bold">1st Seed</div>
-                  <div className="text-secondary-400">vs</div>
-                  <div className="font-semibold font-bold">Play-In Winner</div>
+              {BRACKET_STRUCTURE.wildcard.map((item) => (
+                <div key={item.match} className="rounded-lg border border-[#c8ccd1] p-4 bg-white">
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
+                    <div className="font-semibold text-[#202122]">{item.match}</div>
+                    <Badge variant="primary">{item.format}</Badge>
+                  </div>
+                  <div className="text-sm text-[#54595d] mt-2">Winner: {item.winner}</div>
                 </div>
-                <div className="text-center text-accent-400 font-semibold font-bold pt-2">
-                  BO3
-                </div>
-              </Card>
-
-              <Card className="space-y-3">
-                <Badge variant="primary">Semi Final 2</Badge>
-                <div className="text-center space-y-2 text-sm">
-                  <div className="font-semibold font-bold">2nd Seed</div>
-                  <div className="text-secondary-400">vs</div>
-                  <div className="font-semibold font-bold">3rd Seed</div>
-                </div>
-                <div className="text-center text-accent-400 font-semibold font-bold pt-2">
-                  BO3
-                </div>
-              </Card>
+              ))}
             </div>
-          </div>
+          </Card>
 
-          {/* Grand Final */}
-          <div>
-            <h3 className="text-xl font-semibold font-bold text-orange-400 mb-3 flex items-center space-x-2">
-              <Trophy size={24} />
-              <span>Grand Final</span>
+          <Card>
+            <h3 className="text-xl font-bold text-primary-500 mb-4">Play-Ins</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {BRACKET_STRUCTURE.playIns.map((item) => (
+                <div key={item.round} className="rounded-lg border border-[#c8ccd1] p-4 bg-white space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="font-semibold text-[#202122]">{item.round}</div>
+                    <Badge variant="primary">{item.format}</Badge>
+                  </div>
+                  <div className="text-sm text-[#202122]">{item.match}</div>
+                  <div className="text-xs text-[#54595d]">Winner: {item.winner || "-"}</div>
+                  <div className="text-xs text-[#54595d]">Loser: {item.loser || "-"}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-bold text-primary-500 mb-4">Playoffs</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {BRACKET_STRUCTURE.playoffs.map((item) => (
+                <div key={item.match} className="rounded-lg border border-[#c8ccd1] p-4 bg-white space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="font-semibold text-[#202122]">{item.match}</div>
+                    <Badge variant="primary">{item.format}</Badge>
+                  </div>
+                  <div className="text-xs text-[#54595d]">Destination: {item.destination}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card>
+            <h3 className="text-xl font-bold text-primary-500 mb-4">Main Battle</h3>
+            <div className="space-y-3">
+              {BRACKET_STRUCTURE.mainBattle.map((item) => (
+                <div key={item.round} className="rounded-lg border border-[#c8ccd1] p-4 bg-white">
+                  <div className="flex items-center justify-between flex-wrap gap-3">
+                    <div className="font-semibold text-[#202122]">{item.round}</div>
+                    <Badge variant="primary">{item.format}</Badge>
+                  </div>
+                  <div className="text-sm text-[#202122] mt-2">{item.match}</div>
+                  <div className="text-xs text-[#54595d] mt-2">Winner: {item.winner}</div>
+                  <div className="text-xs text-[#54595d]">Loser: {item.loser || "Runner Up"}</div>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card className="border-2 border-orange-500 bg-gradient-to-br from-orange-500/20 to-primary-500/20">
+            <h3 className="text-xl font-bold text-orange-400 mb-4 flex items-center gap-2">
+              <Trophy size={22} />
+              Grand Final Snapshot
             </h3>
-            <Card className="space-y-4 border-2 border-orange-500 bg-gradient-to-br from-orange-500/20 to-primary-500/20">
-              <div className="text-center space-y-2">
-                <div className="text-sm text-secondary-400">Date</div>
-                <div className="font-semibold font-bold text-lg">2024-04-20</div>
-              </div>
-
-              <div className="border-t border-[#c8ccd1] pt-4 text-center space-y-2">
-                <div className="text-sm text-secondary-400">Semi-Final Winners</div>
-                <div className="font-semibold font-bold">vs</div>
-              </div>
-
-              <div className="space-y-2 text-center">
-                <div className="text-2xl font-semibold font-bold text-orange-400">
-                  BO11
-                </div>
-                <div className="flex justify-center space-x-2">
-                  <Trophy className="text-yellow-400" size={24} />
-                  <div>
-                    <div className="font-semibold font-bold text-lg text-accent-400">
-                      $100,000
-                    </div>
-                    <div className="text-xs text-secondary-400">
-                      1st Place Prize
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <div className="text-xs text-[#54595d] uppercase tracking-wide">Date</div>
+                <div className="font-semibold text-[#202122]">
+                  {grandFinalDay ? new Date(grandFinalDay.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "TBD"}
                 </div>
               </div>
-            </Card>
-          </div>
-        </div>
-
-        {/* Bracket Info */}
-        <div className="mt-16 space-y-6">
-          <h3 className="text-2xl font-semibold font-bold text-primary-400">
-            Tournament Rules & Format
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <h4 className="font-semibold font-bold text-lg text-accent-400 mb-3">
-                Play-Ins Format
-              </h4>
-              <ul className="space-y-2 text-secondary-300 text-sm">
-                <li>• 5th Place team vs 6th Place team</li>
-                <li>• Best of 3 (BO3) Series</li>
-                <li>• Winner advances to Playoffs</li>
-                <li>• Loser is eliminated</li>
-              </ul>
-            </Card>
-
-            <Card>
-              <h4 className="font-semibold font-bold text-lg text-accent-400 mb-3">
-                Playoffs Format
-              </h4>
-              <ul className="space-y-2 text-secondary-300 text-sm">
-                <li>• 1st & 2nd seeds get byes to semis</li>
-                <li>• All matches are Best of 3 (BO3)</li>
-                <li>• Winners advance to Grand Final</li>
-                <li>• Both semis played simultaneously</li>
-              </ul>
-            </Card>
-
-            <Card className="md:col-span-2">
-              <h4 className="font-semibold font-bold text-lg text-accent-400 mb-3">
-                Grand Final Format
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <div className="text-2xl font-semibold font-bold text-orange-400">
-                    BO11
-                  </div>
-                  <div className="text-sm text-secondary-400">
-                    Best of 11 Rounds
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl font-semibold font-bold text-primary-400">
-                    First to 6
-                  </div>
-                  <div className="text-sm text-secondary-400">
-                    Rounds needed to win
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl font-semibold font-bold text-accent-400">
-                    $100K
-                  </div>
-                  <div className="text-sm text-secondary-400">
-                    Champion Prize
-                  </div>
-                </div>
+              <div>
+                <div className="text-xs text-[#54595d] uppercase tracking-wide">Match</div>
+                <div className="font-semibold text-[#202122]">{grandFinalMatch?.team1 || "SF1 Winner"} vs {grandFinalMatch?.team2 || "SF2 Winner"}</div>
               </div>
-            </Card>
-          </div>
+              <div>
+                <div className="text-xs text-[#54595d] uppercase tracking-wide">Champion Prize</div>
+                <div className="font-semibold text-accent-400">{formatPrize(championPrize)}</div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </div>

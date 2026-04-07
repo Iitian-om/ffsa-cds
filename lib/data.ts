@@ -36,7 +36,7 @@ export const TEAMS = [
     code: "IND1",
     region: "India",
     logo: "🇮🇳",
-    description: "Top qualifier from FFMIC Spring 2026",
+    description: "FFMIC Spring 2026 CHAMPIONS",
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ export const TEAMS = [
     code: "IND2",
     region: "India",
     logo: "🇮🇳",
-    description: "Second qualifier from FFMIC Spring 2026",
+    description: "FFMIC Spring 2026 RUNNER-UPs",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ export const TEAMS = [
     code: "IND3",
     region: "India",
     logo: "🇮🇳",
-    description: "Third qualifier from FFMIC Spring 2026",
+    description: "FFMIC Spring 2026 THIRD PLACE",
   },
   {
     id: 4,
@@ -226,8 +226,9 @@ export const SCHEDULE = {
       day: "Friday - Playoffs",
       date: "2024-06-05",
       matches: [
-        { id: 36, Match_Title: "Playoff Match 1", team1: "R3", team2: "R4", time: "14:00", format: "BO3", status: "upcoming", description: "Playoff Match 1" },
-        { id: 37, Match_Title: "Playoff Match 2", team1: "PO_Q1 Winner", team2: "PO_Q2 Winner", time: "16:30", format: "BO3", status: "upcoming", description: "Playoff Match 2" },
+        { id: 36, Match_Title: "Playoff Match 1", team1: "R3", team2: "R4", time: "15:15", format: "BO3", status: "upcoming", Reward: "3rd Finalist Team", description: "Win to advance Consolation Final, Lose goes to Play OFfs Clash" },
+        { id: 37, Match_Title: "Playoff Match 2", team1: "PI_Q1 Winner", team2: "PI_Q2 Winner", time: "16:30", format: "BO3", status: "upcoming", description: "Win to advance Playoff Clash & Losser Gets eliminated" },
+        { id: 38, Match_Title: "Playoff Clash", team1: "Playoff Match 1 Losser", team2: "Playoff Match 2 Winner", time: "17:45", format: "BO5", status: "upcoming", Reward: "4th Finalist Team", description: "Playoff Clash - Win to advance Consolation Final" },
       ],
     },
     {
@@ -236,8 +237,8 @@ export const SCHEDULE = {
       day: "Saturday - Semi Finals Begin",
       date: "2024-06-06",
       matches: [
-        { id: 38, Match_Title: "Semi Final 1", objective: "Win the match to advance to the Grand Final", team1: "R1", team2: "R2", time: "14:20", format: "BO7", status: "upcoming", description: "Semi Final 1" },
-        { id: 39, Match_Title: "Consolation Final", objective: "Win the match to advance to the Semi Finals 2", team1: "Playoff QF 1", team2: "Playoff QF 2", time: "18:00", format: "BO5", status: "upcoming", description: "Playoff Clash" },
+        { id: 39, Match_Title: "Semi Final 1", objective: "Win the match to advance to the Grand Final & Losser gets to Consolation", team1: "R1", team2: "R2", time: "14:20", format: "BO7", status: "upcoming", description: "Semi Final 1" },
+        { id: 40, Match_Title: "Consolation Final: Last Chance For Semi Finals", objective: "Win the match to advance to the Semi Finals 2 & Loser gets eliminated", team1: "Playoff QF 1", team2: "Playoff QF 2", time: "18:00", format: "BO5", status: "upcoming", description: "Playoff Clash" },
       ],
     },
     {
@@ -246,8 +247,8 @@ export const SCHEDULE = {
       day: "Sunday - Grand Finals",
       date: "2024-06-07",
       matches: [
-        { id: 40, Match_Title: "Semi Final 2", objective: "Win the match to advance to the Grand Final", team1: "Semi Final 1 Loser", team2: "Consolation Final Winner", time: "14:00", format: "BO7", status: "upcoming", description: "Semi Final 2" },
-        { id: 41, Match_Title: "🏆 GRAND FINAL", objective: "Win the match to become the champion", team1: "Semi Final 1 Winner", team2: "Semi Final 2 Winner", time: "17:30", format: "BO11", status: "upcoming", description: "🏆 GRAND FINAL" },
+        { id: 41, Match_Title: "Semi Final 2", objective: "Win the match to advance to the Grand Final", team1: "Semi Final 1 Loser", team2: "Consolation Final Winner", time: "14:00", format: "BO7", status: "upcoming", description: "Semi Final 2" },
+        { id: 42, Match_Title: "🏆 GRAND FINAL", objective: "Win the match to become the champion", team1: "Semi Final 1 Winner", team2: "Semi Final 2 Winner", time: "17:30", format: "BO11", status: "upcoming", description: "🏆 GRAND FINAL" },
       ],
     },
   ],
@@ -262,7 +263,7 @@ export const BRACKET_STRUCTURE = {
     "Rank 11-12": "Eliminated",
   },
   wildcard: [
-    { match: "R9 vs R10", format: "BO3", winner: "WCE: WildCard Entry (to Play-Ins)" },
+    { match: "R9 vs R10", format: "BO3", winner: "WCE: WildCard Entry (to Play-Ins)", description: "Winner to Play-Ins - Gauntlet Elimination" },
   ],
   playIns: [
     { round: "Qualifier", match: "R5 vs R6", format: "BO3", winner: "PO_Q1 Qualifier" },

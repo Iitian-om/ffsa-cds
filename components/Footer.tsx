@@ -36,6 +36,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/roadmap" className="hover:text-primary-500">
+                  Roadmap
+                </Link>
+              </li>
+              <li>
                 <Link href="/standings" className="hover:text-primary-500">
                   Standings
                 </Link>
@@ -77,7 +82,7 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-[#202122]">Prize Pool</h4>
             <div className="text-3xl font-bold text-primary-500">$150K</div>
             <p className="text-[#54595d] text-sm">
-              Distributed among top teams
+              Distributed among Top Teams & Top Performers.
             </p>
           </div>
         </div>

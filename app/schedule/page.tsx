@@ -1,157 +1,63 @@
 "use client";
 
+import Link from "next/link";
 import { SectionTitle, Badge } from "@/components/UI";
-import { SCHEDULE } from "@/lib/data";
-
-interface Match {
-  id: number;
-  team1: string;
-  team2: string;
-  time: string;
-  format: string;
-  status: string;
-  result?: string;
-  Match_Title?: string;
-  match_title?: string;
-  objective?: string;
-  description?: string;
-}
-
-interface Day {
-  id: number;
-  day: string;
-  date: string;
-  week?: string;
-  matches: Match[];
-}
-
-function getStatusBadge(status: string) {
-  if (status === "completed") return "success";
-  if (status === "live") return "danger";
-  return "primary";
-}
-
-function getMatchTitle(match: Match) {
-  return match.Match_Title || match.match_title || match.description || `Match ${match.id}`;
-}
-
-function getMatchObjective(match: Match) {
-  return match.objective || match.description || "";
-}
 
 export default function Schedule() {
+  const weekCards = [
+    {
+      title: "Week 1",
+      subtitle: "League Stage",
+      format: "BO1",
+      href: "/schedule/week1",
+      description: "Opening round-robin matches for all teams.",
+    },
+    {
+      title: "Week 2",
+      subtitle: "Play-Ins & Wildcard",
+      format: "BO3",
+      href: "/schedule/week2",
+      description: "Wildcard entry, qualifiers, and gauntlet eliminations.",
+    },
+    {
+      title: "Week 3",
+      subtitle: "Finals",
+      format: "BO3 / BO7 / BO11",
+      href: "/schedule/week3",
+      description: "Playoffs, semi-finals, and the Grand final.",
+    },
+  ];
+
   return (
     <div className="min-h-screen pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionTitle>Tournament Schedule</SectionTitle>
 
-        <div className="space-y-8">
-          {Object.entries(SCHEDULE).map(([week, days]) => (
-            <div key={week} className="rounded-2xl border border-[#a2a9b1] bg-white/80 shadow-sm overflow-hidden">
-              <div className="px-4 sm:px-6 py-4 border-b border-[#eaecf0] bg-[#f8f9fa]">
-                <h3 className="text-lg sm:text-xl font-bold text-primary-500">
-                  {week}
+        <p className="text-sm sm:text-base text-[#54595d] mt-2 mb-6">
+          Choose a week to view detailed matches.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          {weekCards.map((week) => (
+            <Link
+              key={week.href}
+              href={week.href}
+              className="group rounded-2xl border border-[#a2a9b1] bg-white p-5 shadow-sm hover:shadow-md hover:border-primary-500 transition-all duration-200"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-lg font-bold text-[#202122] group-hover:text-primary-500">
+                  {week.title}
                 </h3>
+                <Badge variant="primary">{week.format}</Badge>
               </div>
-
-              <div className="space-y-4 px-4 sm:px-6 py-4 sm:py-5">
-                {(days as Day[]).map((daySchedule) => (
-                  <div key={daySchedule.id} className="rounded-xl border border-[#eaecf0] bg-white">
-                    <div className="flex flex-col gap-1 px-3 sm:px-4 pt-3">
-                      {daySchedule.week ? (
-                        <div className="inline-flex w-fit rounded-full bg-[#eaecf0] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-[#54595d]">
-                          {daySchedule.week}
-                        </div>
-                      ) : null}
-                      <div className="font-semibold text-[#202122] text-base sm:text-[15px] leading-tight">
-                        {daySchedule.day}
-                      </div>
-                      <div className="text-xs text-[#54595d]">
-                        {new Date(daySchedule.date).toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </div>
-                    </div>
-
-                    <div className="overflow-x-auto mt-3 border-t border-[#eaecf0]">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="border-b border-[#eaecf0] bg-[#f8f9fa]">
-                            <th className="text-left px-3 sm:px-4 py-2.5 font-semibold text-[#202122] text-xs uppercase tracking-wide w-[92px]">
-                              Time
-                            </th>
-                            <th className="text-left px-3 sm:px-4 py-2.5 font-semibold text-[#202122] text-xs uppercase tracking-wide">
-                              Match Details
-                            </th>
-                            <th className="text-center px-3 sm:px-4 py-2.5 font-semibold text-[#202122] text-xs uppercase tracking-wide w-[90px]">
-                              Format
-                            </th>
-                            <th className="text-center px-3 sm:px-4 py-2.5 font-semibold text-[#202122] text-xs uppercase tracking-wide w-[96px]">
-                              Status
-                            </th>
-                            <th className="text-center px-3 sm:px-4 py-2.5 font-semibold text-[#202122] text-xs uppercase tracking-wide w-[90px]">
-                              Result
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {daySchedule.matches.map((match) => (
-                            <tr key={match.id} className="border-b border-[#eaecf0] last:border-b-0 hover:bg-[#f8f9fa]">
-                              <td className="px-3 sm:px-4 py-2.5 text-[#202122] font-semibold whitespace-nowrap text-xs sm:text-sm">
-                                {match.time}
-                              </td>
-                              <td className="px-3 sm:px-4 py-2.5">
-                                <div className="text-[#202122] space-y-1">
-                                  <div className="font-semibold text-sm sm:text-[15px] leading-tight">
-                                    {getMatchTitle(match)}
-                                  </div>
-                                  {getMatchObjective(match) ? (
-                                    <div className="text-[11px] sm:text-xs text-[#54595d] leading-relaxed max-w-2xl">
-                                      {getMatchObjective(match)}
-                                    </div>
-                                  ) : null}
-                                  <div className="pt-0.5 text-xs text-[#202122] flex flex-wrap items-center gap-x-2 gap-y-1">
-                                    <span className="font-semibold">{match.team1}</span>
-                                    <span className="text-[#54595d]">vs</span>
-                                    <span className="font-semibold">{match.team2}</span>
-                                  </div>
-                                </div>
-                              </td>
-                              <td className="px-3 sm:px-4 py-2.5 text-center align-middle">
-                                <Badge variant="primary">{match.format}</Badge>
-                              </td>
-                              <td className="px-3 sm:px-4 py-2.5 text-center align-middle">
-                                <Badge variant={getStatusBadge(match.status)}>
-                                  {match.status === "completed"
-                                    ? "Completed"
-                                    : match.status === "live"
-                                    ? "LIVE"
-                                    : "Upcoming"}
-                                </Badge>
-                              </td>
-                              <td className="px-3 sm:px-4 py-2.5 text-center align-middle">
-                                {match.status === "completed" && match.result ? (
-                                  <span className="font-semibold text-primary-500 text-xs sm:text-sm">
-                                    {match.result}
-                                  </span>
-                                ) : (
-                                  <span className="text-[#54595d] text-xs sm:text-sm">—</span>
-                                )}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+              <p className="mt-2 text-sm font-semibold text-[#202122]">{week.subtitle}</p>
+              <p className="mt-1 text-sm text-[#54595d]">{week.description}</p>
+              <p className="mt-4 text-sm font-semibold text-primary-500">View schedule</p>
+            </Link>
           ))}
         </div>
 
+        {/* Legend */}
         <div className="mt-8 rounded-2xl border border-[#a2a9b1] bg-[#f8f9fa] px-4 sm:px-6 py-5">
           <h3 className="text-base sm:text-lg font-bold text-[#202122] mb-4">Legend</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
@@ -177,4 +83,3 @@ export default function Schedule() {
     </div>
   );
 }
-
