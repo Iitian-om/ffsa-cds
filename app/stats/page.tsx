@@ -21,23 +21,23 @@ export default function Stats() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#1f2937] bg-[#0f1823]">
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Player</th>
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
-                  <th className="text-right px-4 py-3 font-bold text-[#f0f0f0]">Points</th>
+                <tr className="border-b border-[#a2a9b1] bg-[#cedff2]">
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Rank</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Player</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Team</th>
+                  <th className="text-right px-4 py-3 font-bold text-[#202122]">Points</th>
                 </tr>
               </thead>
               <tbody>
                 {STATS.tournamentMVP.map((player: StatsItem, idx: number) => (
-                  <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
+                  <tr key={idx} className="border-b border-[#a2a9b1] hover:bg-[#eaecf0]">
                     <td className="px-4 py-3">
                       <span className="font-bold text-primary-500">#{player.rank}</span>
                     </td>
-                    <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                    <td className="px-4 py-3 font-semibold text-[#202122]">
                       {player.playerName}
                     </td>
-                    <td className="px-4 py-3 text-[#9ca3af]">{player.teamName}</td>
+                    <td className="px-4 py-3 text-[#54595d]">{player.teamName}</td>
                     <td className="px-4 py-3 text-right font-bold text-primary-500">
                       {player.points}
                     </td>
@@ -54,7 +54,7 @@ export default function Stats() {
           {STATS.finalsMVP.map((player: StatsItem, idx: number) => (
             <div key={idx} className="text-center">
               <div className="text-5xl mb-4">🏆</div>
-              <div className="font-bold text-2xl text-[#f0f0f0] mb-2">
+              <div className="font-bold text-2xl text-[#202122] mb-2">
                 {player.playerName}
               </div>
               <div className="text-primary-500 font-semibold mb-4">{player.teamName}</div>
@@ -72,19 +72,19 @@ export default function Stats() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#1f2937] bg-[#0f1823]">
-                    <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
-                    <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Player</th>
-                    <th className="text-right px-4 py-3 font-bold text-[#f0f0f0]">Accuracy</th>
+                  <tr className="border-b border-[#a2a9b1] bg-[#cedff2]">
+                    <th className="text-left px-4 py-3 font-bold text-[#202122]">Rank</th>
+                    <th className="text-left px-4 py-3 font-bold text-[#202122]">Player</th>
+                    <th className="text-right px-4 py-3 font-bold text-[#202122]">Accuracy</th>
                   </tr>
                 </thead>
                 <tbody>
                   {STATS.bestIGL.map((player: StatsItem, idx: number) => (
-                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
+                    <tr key={idx} className="border-b border-[#a2a9b1] hover:bg-[#eaecf0]">
                       <td className="px-4 py-3 font-bold text-primary-500">#{player.rank}</td>
                       <td className="px-4 py-3">
-                        <div className="font-semibold text-[#f0f0f0]">{player.playerName}</div>
-                        <div className="text-xs text-[#6b7280]">{player.teamName}</div>
+                        <div className="font-semibold text-[#202122]">{player.playerName}</div>
+                        <div className="text-xs text-[#54595d]">{player.teamName}</div>
                       </td>
                       <td className="px-4 py-3 text-right font-bold text-primary-500">
                         {player.callAccuracy}
@@ -103,22 +103,22 @@ export default function Stats() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#1f2937] bg-[#0f1823]">
-                    <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
-                    <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
-                    <th className="text-right px-4 py-3 font-bold text-[#f0f0f0]">Elims</th>
+                  <tr className="border-b border-[#a2a9b1] bg-[#cedff2]">
+                    <th className="text-left px-4 py-3 font-bold text-[#202122]">Rank</th>
+                    <th className="text-left px-4 py-3 font-bold text-[#202122]">Team</th>
+                    <th className="text-right px-4 py-3 font-bold text-[#202122]">Elims</th>
                   </tr>
                 </thead>
                 <tbody>
                   {STATS.mostEliminations.map((team: StatsItem, idx: number) => (
-                    <tr key={idx} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
+                    <tr key={idx} className="border-b border-[#a2a9b1] hover:bg-[#eaecf0]">
                       <td className="px-4 py-3 font-bold text-primary-500">#{team.rank}</td>
-                      <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                      <td className="px-4 py-3 font-semibold text-[#202122]">
                         {team.teamName}
                       </td>
                       <td className="px-4 py-3 text-right">
                         <div className="font-bold text-primary-500">{team.eliminations}</div>
-                        <div className="text-xs text-[#6b7280]">{team.averagePerMatch} avg</div>
+                        <div className="text-xs text-[#54595d]">{team.averagePerMatch} avg</div>
                       </td>
                     </tr>
                   ))}
@@ -129,27 +129,27 @@ export default function Stats() {
         </div>
 
         {/* Key Statistics */}
-        <div className="border-t border-[#1f2937] pt-12">
-          <h3 className="text-xl font-bold text-[#f0f0f0] mb-6">Key Statistics</h3>
+        <div className="border-t border-[#a2a9b1] pt-12">
+          <h3 className="text-xl font-bold text-[#202122] mb-6">Key Statistics</h3>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="card">
-              <div className="text-sm text-[#6b7280] mb-2">Total Matches</div>
+              <div className="text-sm text-[#54595d] mb-2">Total Matches</div>
               <div className="text-3xl font-bold text-primary-500">180</div>
             </div>
 
             <div className="card">
-              <div className="text-sm text-[#6b7280] mb-2">Total Eliminations</div>
+              <div className="text-sm text-[#54595d] mb-2">Total Eliminations</div>
               <div className="text-3xl font-bold text-primary-500">1,247</div>
             </div>
 
             <div className="card">
-              <div className="text-sm text-[#6b7280] mb-2">Avg Call Accuracy</div>
+              <div className="text-sm text-[#54595d] mb-2">Avg Call Accuracy</div>
               <div className="text-3xl font-bold text-primary-500">94%</div>
             </div>
 
             <div className="card">
-              <div className="text-sm text-[#6b7280] mb-2">Tournament Duration</div>
+              <div className="text-sm text-[#54595d] mb-2">Tournament Duration</div>
               <div className="text-3xl font-bold text-primary-500">3 Weeks</div>
             </div>
           </div>

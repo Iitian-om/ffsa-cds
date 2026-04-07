@@ -7,88 +7,77 @@ A modern, responsive esports tournament website built with Next.js, React, and T
 ![Teams](https://img.shields.io/badge/Teams-12-blue)
 ![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
 
-## 🎯 Features
+## Features
 
-- ✨ **Modern Dark Esports Theme** - Professional UI with glassmorphism effects
-- 📱 **Fully Responsive** - Mobile-first design works on all devices
-- 🎮 **Tournament Pages**:
-  - Home with hero section and live match banner
-  - Schedule with week-wise match layout
-  - Standings with regional grouping and rankings
-  - Teams page with regional profiles
-  - Bracket visualization with playoff structure
-  - Statistics leaderboards and performance metrics
-- 🎨 **Premium UI Components** - Reusable, styled components
-- ⚡ **Smooth Animations** - Hover effects, transitions, and scroll animations
-- 🎯 **TypeScript** - Full type safety
-- 🚀 **Production Ready** - Optimized and ready to deploy
+- Data-driven tournament pages using shared sources in `lib/data.ts`
+- Split schedule experience:
+  - `/schedule` (week selector)
+  - `/schedule/week1`
+  - `/schedule/week2`
+  - `/schedule/week3`
+- Dedicated roadmap page at `/roadmap` with:
+  - stage overview
+  - compact infographic metrics
+  - timeline grouped by event day
+  - bracket progression summary
+- Bracket page aligned to official structure (`BRACKET_STRUCTURE`) and schedule flow
+- Responsive layout for desktop and mobile
+- Reusable UI components (`Button`, `Badge`, `Card`, `SectionTitle`, `Table`)
 
-## 📋 Project Structure
+## Routes
 
-```
+`/` `/schedule` `/schedule/week1` `/schedule/week2` `/schedule/week3`  `/roadmap`  `/bracket`  `/standings`  `/teams`  `/stats` 
+
+## Project Structure
+
+```text
 ffsa-cds/
-├── app/                      # Next.js app directory
-│   ├── layout.tsx           # Root layout with navbar & footer
-│   ├── globals.css          # Global styles and animations
-│   ├── page.tsx             # Homepage with hero and featured content
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── bracket/page.tsx
+│   ├── roadmap/page.tsx
 │   ├── schedule/
-│   │   └── page.tsx         # Schedule with week-wise matches
-│   ├── standings/
-│   │   └── page.tsx         # Standings table with regional breakdown
-│   ├── teams/
-│   │   └── page.tsx         # Teams grouped by region
-│   ├── bracket/
-│   │   └── page.tsx         # Tournament bracket visualization
-│   └── stats/
-│       └── page.tsx         # Statistics and leaderboards
+│   │   ├── page.tsx
+│   │   ├── week1/page.tsx
+│   │   ├── week2/page.tsx
+│   │   ├── week3/page.tsx
+│   │   └── _components/ScheduleWeekView.tsx
+│   ├── standings/page.tsx
+│   ├── teams/page.tsx
+│   └── stats/page.tsx
 ├── components/
-│   ├── Navbar.tsx           # Navigation bar
-│   ├── Footer.tsx           # Footer component
-│   └── UI.tsx               # Reusable UI components
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── UI.tsx
 ├── lib/
-│   └── data.ts              # Tournament data and mock data
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.js
-├── next.config.js
-└── .gitignore
+│   ├── data.ts
+│   └── Mock_data.ts
+└── ...config files
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Framework**: Next.js 14
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Component Library**: React
-- **Icons**: Lucide React
-- **Package Manager**: pnpm
-- **Fonts**: Orbitron (esports), Inter (body)
+- Next.js 14
+- TypeScript
+- React
+- Tailwind CSS
+- Lucide React icons
+- pnpm
 
-## Update Tournament Info
+## Data Source
 
-Edit `lib/data.ts`:
-```typescript
-// example 
-export const TOURNAMENT_INFO = {
-  name: "Your Tournament",
-  fullName: "Your Full Tournament Name",
-  prizePool: 100000,
-  // ... other fields
-};
-```
+Tournament content is sourced from `lib/data.ts`.
 
-### Modify Colors
+Primary exports used across pages:
+- `TOURNAMENT_INFO`
+- `SCHEDULE`
+- `BRACKET_STRUCTURE`
+- `PRIZE_BREAKDOWN`
+- `STANDINGS`
+- `TEAMS`
 
-Edit `tailwind.config.ts` to adjust the color scheme:
-```typescript
-// example 
-colors: {
-  primary: { /* adjust orange */ },
-  accent: { /* adjust cyan */ },
-  secondary: { /* adjust grey */ },
-}
-```
+
 
 ## 🔄 Integrating Real Data
 
@@ -108,7 +97,8 @@ async function getStandings() {
 }
 ```
 
-## 📝 License
+## License
+
 This project is created for FFSA CDS tournament. All rights reserved.
 
 ## 📧 Support

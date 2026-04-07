@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0e27] border-t border-[#1f2937] mt-20 py-12">
+    <footer className="bg-[#eaecf0] border-t border-[#a2a9b1] mt-20 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-primary-500">FFSA CDS</h3>
-            <p className="text-[#9ca3af]">
+            <p className="text-[#54595d]">
               South Asia&apos;s Ultimate Clash Squad Championship
             </p>
             <div className="flex space-x-4 text-sm">
@@ -28,11 +28,16 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-[#f0f0f0]">Quick Links</h4>
-            <ul className="space-y-2 text-[#9ca3af]">
+            <h4 className="text-lg font-bold text-[#202122]">Quick Links</h4>
+            <ul className="space-y-2 text-[#54595d]">
               <li>
                 <Link href="/schedule" className="hover:text-primary-500">
                   Schedule
+                </Link>
+              </li>
+              <li>
+                <Link href="/roadmap" className="hover:text-primary-500">
+                  Roadmap
                 </Link>
               </li>
               <li>
@@ -55,40 +60,40 @@ export default function Footer() {
 
           {/* Tournament Info */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-[#f0f0f0]">Tournament</h4>
-            <ul className="space-y-2 text-[#9ca3af] text-sm">
+            <h4 className="text-lg font-bold text-[#202122]">Tournament</h4>
+            <ul className="space-y-2 text-[#54595d] text-sm">
               <li>
-                <span className="text-[#f0f0f0]">Teams:</span> 12
+                <span className="text-[#202122]">Teams:</span> 12
               </li>
               <li>
-                <span className="text-[#f0f0f0]">Region:</span> South Asia
+                <span className="text-[#202122]">Region:</span> South Asia
               </li>
               <li>
-                <span className="text-[#f0f0f0]">Game:</span> Free Fire MAX
+                <span className="text-[#202122]">Game:</span> Free Fire MAX
               </li>
               <li>
-                <span className="text-[#f0f0f0]">Format:</span> Clash Squad
+                <span className="text-[#202122]">Format:</span> Clash Squad
               </li>
             </ul>
           </div>
 
           {/* Prize Pool */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-[#f0f0f0]">Prize Pool</h4>
+            <h4 className="text-lg font-bold text-[#202122]">Prize Pool</h4>
             <div className="text-3xl font-bold text-primary-500">$150K</div>
-            <p className="text-[#9ca3af] text-sm">
-              Distributed among top teams
+            <p className="text-[#54595d] text-sm">
+              Distributed among Top Teams & Top Performers.
             </p>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#1f2937] pt-8">
+        <div className="border-t border-[#a2a9b1] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
-            <p className="text-[#6b7280]">
+            <p className="text-[#54595d]">
               © 2024 FFSA CDS. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-[#6b7280]">
+            <div className="flex space-x-6 text-[#54595d]">
               <Link href="#" className="hover:text-primary-500">
                 Privacy Policy
               </Link>

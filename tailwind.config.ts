@@ -8,29 +8,20 @@ const config = {
     extend: {
       colors: {
         primary: {
-          500: '#06b6d4',
-          600: '#0891b2',
+          400: '#4478d1',
+          500: '#3366cc',
+          600: '#2a4b8d',
+        },
+        accent: {
+          400: '#2a4b8d',
         },
         secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-        },
-        bg: {
-          dark: '#0a0e27',
-          darker: '#0f1823',
-          card: '#121829',
+          300: '#72777d',
+          400: '#54595d',
         },
       },
       fontFamily: {
-        inter: ['var(--font-inter)', 'sans-serif'],
+        inter: ['Arial', 'Helvetica', 'sans-serif'],
       },
     },
   },

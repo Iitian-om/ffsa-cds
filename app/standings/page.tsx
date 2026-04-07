@@ -10,7 +10,7 @@ interface Standing {
   region: string;
   wins: number;
   losses: number;
-  roundDiff: string;
+  code: string;
   points: number;
 }
 
@@ -32,38 +32,38 @@ export default function Standings() {
 
         {/* Overall Standings Table */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-[#f0f0f0] mb-6">Overall Rankings</h3>
+          <h3 className="text-xl font-bold text-[#202122] mb-6">Overall Rankings</h3>
 
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#1f2937] bg-[#0f1823]">
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
-                  <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Region</th>
-                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">W-L</th>
-                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">Pts</th>
-                  <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">RD</th>
+                <tr className="border-b border-[#a2a9b1] bg-[#cedff2]">
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Rank</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Team</th>
+                  <th className="text-left px-4 py-3 font-bold text-[#202122]">Region</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#202122]">W-L</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#202122]">Pts</th>
+                  <th className="text-center px-4 py-3 font-bold text-[#202122]">Code</th>
                 </tr>
               </thead>
               <tbody>
                 {STANDINGS.map((standing: Standing) => (
-                  <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
+                  <tr key={standing.rank} className="border-b border-[#a2a9b1] hover:bg-[#eaecf0]">
                     <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
                       #{standing.rank}
                     </td>
-                    <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                    <td className="px-4 py-3 font-semibold text-[#202122]">
                       {standing.teamName}
                     </td>
-                    <td className="px-4 py-3 text-[#9ca3af]">{standing.region}</td>
-                    <td className="px-4 py-3 text-center text-[#f0f0f0]">
+                    <td className="px-4 py-3 text-[#54595d]">{standing.region}</td>
+                    <td className="px-4 py-3 text-center text-[#202122]">
                       {standing.wins}—{standing.losses}
                     </td>
                     <td className="px-4 py-3 text-center font-semibold text-primary-500">
                       {standing.points}
                     </td>
-                    <td className="px-4 py-3 text-center text-[#e0e0e0]">
-                      {standing.roundDiff}
+                    <td className="px-4 py-3 text-center text-[#202122]">
+                      {standing.code}
                     </td>
                   </tr>
                 ))}
@@ -78,30 +78,30 @@ export default function Standings() {
             const regionTeams = STANDINGS.filter((s) => s.region === region);
             return (
               <div key={region}>
-                <h3 className="text-xl font-bold text-primary-500 mb-4 pb-3 border-b border-[#1f2937]">
+                <h3 className="text-xl font-bold text-primary-500 mb-4 pb-3 border-b border-[#a2a9b1]">
                   {region}
                 </h3>
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-[#1f2937] bg-[#0f1823]">
-                        <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Rank</th>
-                        <th className="text-left px-4 py-3 font-bold text-[#f0f0f0]">Team</th>
-                        <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">W-L</th>
-                        <th className="text-center px-4 py-3 font-bold text-[#f0f0f0]">Pts</th>
+                      <tr className="border-b border-[#a2a9b1] bg-[#cedff2]">
+                        <th className="text-left px-4 py-3 font-bold text-[#202122]">Rank</th>
+                        <th className="text-left px-4 py-3 font-bold text-[#202122]">Team</th>
+                        <th className="text-center px-4 py-3 font-bold text-[#202122]">W-L</th>
+                        <th className="text-center px-4 py-3 font-bold text-[#202122]">Pts</th>
                       </tr>
                     </thead>
                     <tbody>
                       {regionTeams.map((standing: Standing) => (
-                        <tr key={standing.rank} className="border-b border-[#1f2937] hover:bg-[#1a2141]">
+                        <tr key={standing.rank} className="border-b border-[#a2a9b1] hover:bg-[#eaecf0]">
                           <td className={`px-4 py-3 font-bold ${getRankColor(standing.rank)}`}>
                             #{standing.rank}
                           </td>
-                          <td className="px-4 py-3 font-semibold text-[#f0f0f0]">
+                          <td className="px-4 py-3 font-semibold text-[#202122]">
                             {standing.teamName}
                           </td>
-                          <td className="px-4 py-3 text-center text-[#f0f0f0]">
+                          <td className="px-4 py-3 text-center text-[#202122]">
                             {standing.wins}—{standing.losses}
                           </td>
                           <td className="px-4 py-3 text-center font-semibold text-primary-500">
@@ -118,28 +118,28 @@ export default function Standings() {
         </div>
 
         {/* Legend */}
-        <div className="mt-16 pt-12 border-t border-[#1f2937]">
-          <h3 className="text-xl font-bold text-[#f0f0f0] mb-6">Ranking Legend</h3>
+        <div className="mt-16 pt-12 border-t border-[#a2a9b1]">
+          <h3 className="text-xl font-bold text-[#202122] mb-6">Ranking Legend</h3>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className="card">
               <div className="text-green-400 font-bold text-sm mb-1">#1-2</div>
-              <div className="text-[#6b7280] text-xs">Auto Qualify to Playoffs</div>
+              <div className="text-[#54595d] text-xs">Auto Qualify to Playoffs</div>
             </div>
             <div className="card">
               <div className="text-blue-400 font-bold text-sm mb-1">#3-4</div>
-              <div className="text-[#6b7280] text-xs">Playoffs Bracket</div>
+              <div className="text-[#54595d] text-xs">Playoffs Bracket</div>
             </div>
             <div className="card">
               <div className="text-yellow-400 font-bold text-sm mb-1">#5-8</div>
-              <div className="text-[#6b7280] text-xs">Play-Ins Bracket</div>
+              <div className="text-[#54595d] text-xs">Play-Ins Bracket</div>
             </div>
             <div className="card">
               <div className="text-orange-400 font-bold text-sm mb-1">#9-10</div>
-              <div className="text-[#6b7280] text-xs">Gauntlet Entry</div>
+              <div className="text-[#54595d] text-xs">Gauntlet Entry</div>
             </div>
             <div className="card">
               <div className="text-red-400 font-bold text-sm mb-1">#11-12</div>
-              <div className="text-[#6b7280] text-xs">Eliminated</div>
+              <div className="text-[#54595d] text-xs">Eliminated</div>
             </div>
           </div>
         </div>

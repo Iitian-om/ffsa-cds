@@ -86,11 +86,11 @@ export function Table({ columns, rows, className = "" }: TableProps) {
     <div className={`overflow-x-auto ${className}`}>
       <table className="w-full border-collapse text-sm md:text-base">
         <thead>
-          <tr className="border-b border-[#1f2937]">
+          <tr className="border-b border-[#a2a9b1]">
             {columns.map((col, i) => (
               <th
                 key={i}
-                className="text-left px-4 py-3 font-bold text-[#f0f0f0] bg-[#0f1823]"
+                className="text-left px-4 py-3 font-bold text-[#202122] bg-[#cedff2]"
               >
                 {col}
               </th>
@@ -101,10 +101,10 @@ export function Table({ columns, rows, className = "" }: TableProps) {
           {rows.map((row, i) => (
             <tr
               key={i}
-              className="border-b border-[#1f2937] hover:bg-[#1a2141] transition-colors duration-200"
+              className="border-b border-[#a2a9b1] hover:bg-[#eaecf0] transition-colors duration-200"
             >
               {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-[#e0e0e0]">
+                <td key={j} className="px-4 py-3 text-[#202122]">
                   {cell}
                 </td>
               ))}
